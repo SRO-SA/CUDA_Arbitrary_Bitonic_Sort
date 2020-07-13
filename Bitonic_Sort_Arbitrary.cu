@@ -38,19 +38,6 @@ void bitonic_sort_step(int length, long * arr, int j, int k, bool dir)
             long tmp = arr[i];
             arr[i] = arr[ixj];
             arr[ixj] = tmp;
-            tmp = arr[length + i];
-            arr[ROW1*length + i] = arr[ROW1*length + ixj];
-            arr[ROW1*length + ixj] = tmp; 
-          }
-          else if(arr[i]==arr[ixj]){
-            if(arr[ROW1*length + i]>arr[ROW1*length + ixj]){
-              long tmp = arr[i];
-              arr[i] = arr[ixj];
-              arr[ixj] = tmp;
-              tmp = arr[ROW1*length + i];
-              arr[ROW1*length + i] = arr[ROW1*length + ixj];
-              arr[ROW1*length + ixj] = tmp;  
-            }
           }
         }
         if((i&k)==0)
@@ -60,21 +47,7 @@ void bitonic_sort_step(int length, long * arr, int j, int k, bool dir)
             long tmp = arr[i];
             arr[i] = arr[ixj];
             arr[ixj] = tmp;
-            tmp = arr[ROW1*length + i];
-            arr[ROW1*length + i] = arr[ROW1*length + ixj];
-            arr[ROW1*length + ixj] = tmp;
-          }
-          else if(arr[i]==arr[ixj]){
-            if(arr[ROW1*length + i]<arr[ROW1*length + ixj]){
-              long tmp = arr[i];
-              arr[i] = arr[ixj];
-              arr[ixj] = tmp;
-              tmp = arr[ROW1*length + i];
-              arr[ROW1*length + i] = arr[ROW1*length + ixj];
-              arr[ROW1*length + ixj] = tmp;      
-              
-            }
-          }        
+          }       
         }
       }
     }
